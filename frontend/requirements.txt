@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+streamlit
+requests
+python-dotenv
+gTTS
+gnews
+snscrape
+groq
+langchain-groq
