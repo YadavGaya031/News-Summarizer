@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 import requests
 from gtts import gTTS
-from models import NewsRequest
+from backend.models import NewsRequest
 import base64
 import re
 
