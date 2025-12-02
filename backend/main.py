@@ -42,7 +42,7 @@ def summary_function(news_data: str, x_data: str):
     groq_api_key = os.getenv("GROQ_API_KEY")
 
     payload = {
-        "model" : "deepseek-r1-distill-llama-70b",
+        "model" : "groq/compound",
         "messages": [
             {"role": "system",
              "content": (
