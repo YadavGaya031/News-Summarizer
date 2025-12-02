@@ -48,7 +48,7 @@ def main():
     st.markdown("-------------------------")
     st.subheader("Audio Generation")
 
-    if st.button("Generate Audio", disabled=len(st.session_state.topics) == 0):
+    if st.button("Generate News", disabled=len(st.session_state.topics) == 0):
         if not st.session_state.topics:
             st.error("Please add at least one topic to generate audio.")
         else:
