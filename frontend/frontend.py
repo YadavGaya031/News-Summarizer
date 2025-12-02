@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import base64
 
-BACKEND_URL = "https://news-summarizer-2-xlbc.onrender.com"
+BACKEND_URL = "https://news-summarizer-b6rs.onrender.com"
 
 def main():
     st.title("News Scrapper")
