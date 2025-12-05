@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from models import NewsRequest
+from backend.models import NewsRequest
 
 # ----------------------------------
 # Logging Setup
