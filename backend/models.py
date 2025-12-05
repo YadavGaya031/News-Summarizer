@@ -1,7 +1,7 @@
 from pydantic import BaseModel
-from typing import List, Literal
+from typing import Literal
 
 class NewsRequest(BaseModel):
-    topics: List[str]
+    topics: list[str]
     source_type: Literal["news","X","both"]
     
