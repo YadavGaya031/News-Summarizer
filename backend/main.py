@@ -36,7 +36,7 @@ app = FastAPI(title="News Summarizer Backend")
 # In production, restrict origins to your exact Streamlit URL.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # for debugging; later change to ["https://your-frontend.onrender.com"]
+    allow_origins=["https://news-summarizer-b6rs.onrender.com"],  # for debugging; later change to ["https://your-frontend.onrender.com"]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
