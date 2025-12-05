@@ -1,4 +1,3 @@
-
 import streamlit as st
 import requests
 import base64
@@ -57,7 +56,7 @@ def main():
             # Each remove button has a unique key
             if cols[1].button("Remove", key=f"remove_{i}"):
                 del st.session_state.topics[i]
-                st.experimental_rerun()
+                st.rerun()
 
     else:
         st.info("No topics added yet. Add at least one topic to generate a summary.")
