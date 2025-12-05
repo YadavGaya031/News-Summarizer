@@ -1,13 +1,9 @@
-BACKEND_URL = "https://news-summarizer-b6rs.onrender.com"
 
 import streamlit as st
 import requests
 import base64
 
-# 👉 IMPORTANT: Use your backend Render URL (WITHOUT trailing /)
-# Example: "https://news-summarizer-b6rs.onrender.com"
 BACKEND_URL = "https://news-summarizer-b6rs.onrender.com"
-
 def main():
     st.set_page_config(page_title="News Scraper", page_icon="📰", layout="centered")
     st.title("📰 News Scraper & Audio Summarizer")
