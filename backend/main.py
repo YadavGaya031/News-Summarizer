@@ -107,9 +107,20 @@ def set_cache(key: str, data: dict):
 # HTTP Helper with logging
 # ----------------------------------
 def safe_request(method, url, **kwargs):
-    log.info(f"\n----- External API Call -----\nURL: {url}\nMethod: {method}\nParams: {kwargs}\n-----------------------------")
+    # Apply default timeout only if caller hasn't given one
+    if "timeout" not in kwargs:
+        kwargs["timeout"] = 20
+
+    log.info(
+        f"\n----- External API Call -----\n"
+        f"URL: {url}\n"
+        f"Method: {method}\n"
+        f"Params: {kwargs}\n"
+        "-----------------------------"
+    )
+
     try:
-        resp = requests.request(method, url, timeout=20, **kwargs)
+        resp = requests.request(method, url, **kwargs)
         log.info(f"STATUS: {resp.status_code}")
         log.info(f"RAW RESPONSE:\n{resp.text}\n")
         return resp
