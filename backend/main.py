@@ -38,14 +38,9 @@ if not GROQ_API_KEY:
 # ----------------------------------
 app = FastAPI(title="News Summarizer Backend")
 
-# ----------------------------------
-# CORS
-# IMPORTANT: replace this with YOUR FRONTEND URL
-# Example: "https://news-summarizer-2-xlbc.onrender.com"
-# ----------------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For now, allow all during testing
+    allow_origins=["https://news-summarizer-2-xlbc.onrender.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
