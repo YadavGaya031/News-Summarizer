@@ -59,7 +59,8 @@ def main():
                         json={
                             "topics": st.session_state.topics,
                             "source_type": source_type
-                        }
+                        },
+                        timeout = 180, # 3 minutes max timeout to be safe
                     )
                     if response.status_code == 200:
                         data = response.json()
@@ -91,10 +92,19 @@ def main():
 def handle_api_error(response):
     """Handle API errors by displaying an error message."""
     try:
-        error_detail = response.json().get("detail", "Unknown error")
-        st.error(f"API Error: ({response.status_code}): {error_detail}")
+        detail = response.json().get("detail", "Unknown error")
     except ValueError:
-        st.error(f"Unexpected error: {response.text}")
+        detail = response.text or "Unknown error (non-JSON response)"
+
+    if response.status_code == 429:
+        st.error(f"Rate limit reached (429): {detail}\n\n"
+                 "Please wait a few seconds and try again.")
+    elif response.status_code == 400:
+        st.error(f"Bad Request (400): {detail}")
+    elif response.status_code == 500:
+        st.error(f"Server Error (500): {detail}")
+    else:
+        st.error(f"API Error ({response.status_code}): {detail}")
 
 
 
